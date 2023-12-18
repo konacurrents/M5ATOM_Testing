@@ -16,12 +16,17 @@
 		D26BE0AF2B30BF76000166C2 /* ATOMQRCodeModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATOMQRCodeModule.cpp; sourceTree = "<group>"; };
 		D26BE0B02B30BF76000166C2 /* ATOMQRCodeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOMQRCodeModule.h; sourceTree = "<group>"; };
 		D26BE0B12B30C1A5000166C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+		D26BE0B32B30C2BD000166C2 /* ATOM.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = ATOM.jpg; sourceTree = "<group>"; };
+		D26BE0B42B30C345000166C2 /* QRAtom.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = QRAtom.jpeg; sourceTree = "<group>"; };
+		D26BE0B52B30C35A000166C2 /* SM_SMART.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SM_SMART.png; sourceTree = "<group>"; };
+		D26BE0B62B30C38C000166C2 /* SemanticMarkerQR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SemanticMarkerQR.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		D26BE0982B30B685000166C2 = {
 			isa = PBXGroup;
 			children = (
+				D26BE0B22B30C2B1000166C2 /* images */,
 				D26BE0B12B30C1A5000166C2 /* README.md */,
 				D26BE0A32B30B991000166C2 /* Defines.h */,
 				D26BE0A42B30B991000166C2 /* M5ATOM_Testing.ino */,
@@ -48,6 +53,17 @@
 				D26BE0AD2B30BAE2000166C2 /* ATOM_SM.cpp */,
 			);
 			path = ATOM_QRCode_Module;
+			sourceTree = "<group>";
+		};
+		D26BE0B22B30C2B1000166C2 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				D26BE0B32B30C2BD000166C2 /* ATOM.jpg */,
+				D26BE0B42B30C345000166C2 /* QRAtom.jpeg */,
+				D26BE0B52B30C35A000166C2 /* SM_SMART.png */,
+				D26BE0B62B30C38C000166C2 /* SemanticMarkerQR.jpg */,
+			);
+			path = images;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
