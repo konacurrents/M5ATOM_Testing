@@ -6,11 +6,48 @@
 	objectVersion = 56;
 	objects = {
 
+/* Begin PBXFileReference section */
+		D26BE0A32B30B991000166C2 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
+		D26BE0A42B30B991000166C2 /* M5ATOM_Testing.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = M5ATOM_Testing.ino; sourceTree = "<group>"; };
+		D26BE0A82B30B991000166C2 /* ATOMQR_UART_CMD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATOMQR_UART_CMD.cpp; sourceTree = "<group>"; };
+		D26BE0AC2B30B991000166C2 /* ATOMQR_UART_CMD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOMQR_UART_CMD.h; sourceTree = "<group>"; };
+		D26BE0AD2B30BAE2000166C2 /* ATOM_SM.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ATOM_SM.cpp; sourceTree = "<group>"; };
+		D26BE0AE2B30BAE2000166C2 /* ATOM_SM.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATOM_SM.h; sourceTree = "<group>"; };
+		D26BE0AF2B30BF76000166C2 /* ATOMQRCodeModule.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATOMQRCodeModule.cpp; sourceTree = "<group>"; };
+		D26BE0B02B30BF76000166C2 /* ATOMQRCodeModule.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOMQRCodeModule.h; sourceTree = "<group>"; };
+		D26BE0B12B30C1A5000166C2 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
 /* Begin PBXGroup section */
 		D26BE0982B30B685000166C2 = {
 			isa = PBXGroup;
 			children = (
+				D26BE0B12B30C1A5000166C2 /* README.md */,
+				D26BE0A32B30B991000166C2 /* Defines.h */,
+				D26BE0A42B30B991000166C2 /* M5ATOM_Testing.ino */,
+				D26BE0A52B30B991000166C2 /* src */,
 			);
+			sourceTree = "<group>";
+		};
+		D26BE0A52B30B991000166C2 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				D26BE0A62B30B991000166C2 /* ATOM_QRCode_Module */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		D26BE0A62B30B991000166C2 /* ATOM_QRCode_Module */ = {
+			isa = PBXGroup;
+			children = (
+				D26BE0AF2B30BF76000166C2 /* ATOMQRCodeModule.cpp */,
+				D26BE0B02B30BF76000166C2 /* ATOMQRCodeModule.h */,
+				D26BE0AC2B30B991000166C2 /* ATOMQR_UART_CMD.h */,
+				D26BE0A82B30B991000166C2 /* ATOMQR_UART_CMD.cpp */,
+				D26BE0AE2B30BAE2000166C2 /* ATOM_SM.h */,
+				D26BE0AD2B30BAE2000166C2 /* ATOM_SM.cpp */,
+			);
+			path = ATOM_QRCode_Module;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
