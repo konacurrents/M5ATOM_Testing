@@ -20,12 +20,14 @@
 		D26BE0B42B30C345000166C2 /* QRAtom.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = QRAtom.jpeg; sourceTree = "<group>"; };
 		D26BE0B52B30C35A000166C2 /* SM_SMART.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SM_SMART.png; sourceTree = "<group>"; };
 		D26BE0B62B30C38C000166C2 /* SemanticMarkerQR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SemanticMarkerQR.jpg; sourceTree = "<group>"; };
+		D26BE0B72B30C524000166C2 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
 		D26BE0982B30B685000166C2 = {
 			isa = PBXGroup;
 			children = (
+				D26BE0B72B30C524000166C2 /* LICENSE.md */,
 				D26BE0B22B30C2B1000166C2 /* images */,
 				D26BE0B12B30C1A5000166C2 /* README.md */,
 				D26BE0A32B30B991000166C2 /* Defines.h */,
