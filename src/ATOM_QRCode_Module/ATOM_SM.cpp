@@ -6,6 +6,7 @@
 //
 
 #include "ATOM_SM.h"
+#ifdef ATOM_QRCODE_MODULE
 
 #define DECODE_BASE64
 #ifdef DECODE_BASE64
@@ -247,3 +248,7 @@ boolean ATOM_processSemanticMarker(char *semanticMarker)
     
 #endif // PROCESS_SEMANTIC_MARKER
 }
+
+
+#endif //ATOM_QRCODE_MODULE
+

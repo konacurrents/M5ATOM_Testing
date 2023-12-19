@@ -18,10 +18,13 @@
 #define VERSION "Version-(2.19)-12.16.23.2023-ESP_M5_ATOM_QR_HTTPS_SMART"
 #define ESP_M5
 #define ATOM_QRCODE_MODULE
+//#define ATOMQR_FACTORY_CODE
 
 //! 11.14.23 try "https" secure web call (to SemanticMarker.org/bot/...)
 //!  See https://GitHub.com/konacurrents/SemanticMarkerAPI for more info
 //#define USE_REST_MESSAGING
+
+#define USE_FAST_LED
 
 #endif //ESP_M5_ATOM_LITE_QR_SCANNER_CONFIGURATION
 
@@ -50,11 +53,14 @@
 // *** REST ARE NORMAL INCLUDES based on these #defines ****
 #define NOTSET_STRING (char*)"notset"
 
-
-#define ESP_M5
-
 #ifdef ESP_M5
+
+#ifdef ATOMQR_FACTORY_CODE
+#include <M5Atom.h>
+#else
 #include <M5StickCPlus.h>
+
+#endif
 #else
 #include <Arduino.h>
 #endif
@@ -65,6 +71,10 @@
 #include "src/ATOM_QRCode_Module/ATOMQRCodeModule.h"
 #endif
 
+#ifdef ATOMQR_FACTORY_CODE
+#include "src/ATOM_QRCode_Module/ATOMQR_FactoryCode.h"
+
+#endif
 
 //! try a call..
 #ifdef USE_REST_MESSAGING

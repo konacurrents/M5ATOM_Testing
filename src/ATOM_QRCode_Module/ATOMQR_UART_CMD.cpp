@@ -24,10 +24,13 @@
 
 //#include <M5Atom.h>
 
+#ifdef USE_FAST_LED
+//! our own LED
+#include "../LED_DisplayModule/M5Display.h"
+#endif
+
 #ifdef ESP_M5
-#include <M5StickCPlus.h>
-
-
+//#include <M5StickCPlus.h>
 
 
 //void M5StickCPlus::begin(bool LCDEnable, bool PowerEnable, bool SerialEnable) {
@@ -63,6 +66,7 @@ char _lastSemanticMarker[MAX_SM];
 //!
 //!RGB is GPIO 27
 const int ledPin_M5Atom = 27;
+#define LATER
 #ifdef LATER
 //! CRGB is RGB
 //! https://github.com/FastLED/FastLED/wiki/Pixel-reference
@@ -81,12 +85,16 @@ const int ledPin_M5Atom = 27;
 #define LED_GPIO 27
 #define LED_BRIGHT 100
 
-static const crgb_t L_RED = 0xff0000;
-static const crgb_t L_GREEN = 0x00ff00;
-static const crgb_t L_BLUE = 0x0000ff;
-static const crgb_t L_WHITE = 0xe0e0e0;
+#ifdef USE_FAST_LED
 
-LiteLED myLED( LED_TYPE, LED_TYPE_IS_RGBW );
+static const CRGB L_RED = 0xff0000;
+static const CRGB L_GREEN = 0x00ff00;
+static const CRGB L_BLUE = 0x0000ff;
+static const CRGB L_WHITE = 0xe0e0e0;
+static const CRGB L_YELLOW = 0xfff000;
+#endif
+
+//LiteLED myLED( LED_TYPE, LED_TYPE_IS_RGBW );
 #endif //LATER
 /*
  ATON:
@@ -148,7 +156,11 @@ void checkButtonB_ButtonProcessing()
         //        buttonA_ShortPress();
         SerialDebug.println(" **** SHORT PRESS ***");
         _shortPress = true;
-        
+#ifdef USE_FAST_LED
+
+        fillpix(0x0000ff);
+#endif
+
         toggleLED();
     }
     else
@@ -179,6 +191,9 @@ uint8_t bootSoundProhibit[]   = {0x08, 0xC6, 0x04, 0x08, 0x00, 0xF2, 0x0D, 0x00,
 //more
 uint8_t continuous_mode_cmd[]  = {0x07, 0xC6, 0x04, 0x08, 0x00, 0x8A, 0x04, 0xFE, 0x99};
 
+//!adding
+uint8_t factory_reset[]  = {0x08, 0xC6, 0x04, 0x08, 0x00, 0xF2, 0xFF, 0x00, 0xFD, 0x35};
+
 void setup_ATOMQR_UARD_CMD()
 {
     SerialDebug.println("setup_ATOMQR_UARD_CMD");
@@ -188,9 +203,16 @@ void setup_ATOMQR_UARD_CMD()
                   19);  // Set the baud rate of serial port 2 to 115200,8 data bits, no
                         // parity bits, and 1 stop bit, and set RX to 22 and TX to 19.
                         // 设置串口二的波特率为115200,8位数据位,没有校验位,1位停止位,并设置RX为22,TX为19
-//    M5.dis.fillpix(0xfff000);  // YELLOW 黄色
+    //SerialDebug.println("step 2");
+
+#ifdef USE_FAST_LED
+    setup_M5Display();
+    fillpix(L_GREEN);
+#endif
+    
+    //    M5.dis.fillpix(0xfff000);  // YELLOW 黄色
 //#define LATER
-#ifdef LATER
+#ifdef LATER2
     //pinMode(ledPin_M5Atom, OUTPUT);
     myLED.begin( LED_GPIO, 1 );
     myLED.brightness( LED_BRIGHT );
@@ -202,6 +224,8 @@ void setup_ATOMQR_UARD_CMD()
     Serial2.write(wakeup_cmd);
     delay(50);
     
+    //Serial2.write(factory_reset, sizeof(factory_reset));
+
     //        Serial2.write(buzzerVolumeLow, sizeof(buzzerVolumeLow));
     
     //NOT WORKING.. it was 12.9.23 (but then no beep on detection either)
@@ -218,7 +242,7 @@ void setup_ATOMQR_UARD_CMD()
     
 //    Serial2.write(buzzerVolumeLow, sizeof(buzzerVolumeLow));
 //    Serial2.write(bootSoundProhibit, sizeof(bootSoundProhibit));
-#define TRY_CONTINUOUS
+//#define TRY_CONTINUOUS
 #ifdef  TRY_CONTINUOUS
     //THIS IS WORKING..
       Serial2.write(continuous_mode_cmd, sizeof(continuous_mode_cmd));
@@ -324,7 +348,10 @@ void loop_ATOMQR_UARD_CMD()
         //!save globally..
          if (saveSM)
              strcpy(_lastSemanticMarker, semanticMarker);
-        
+#ifdef USE_FAST_LED
+        fillpix(L_GREEN);
+#endif
+
     }
 
     if (_longPress)
@@ -337,10 +364,17 @@ void loop_ATOMQR_UARD_CMD()
         //!process the semantic marker AGAIN
         //!used _lastSemanticMarker
         ATOM_processSemanticMarker(_lastSemanticMarker);
-        
+#ifdef USE_FAST_LED
+        fillpix(L_YELLOW);
+#endif
+
     }
     else if (_longLongPress)
     {
+#ifdef USE_FAST_LED
+        fillpix(L_RED);
+#endif
+        
         SerialDebug.printf("CLEAN CREDENTIALS and reboot to AP mode\n");
 #ifdef PROCESS_SEMANTIC_MARKER
         //! dispatches a call to the command specified. This is run on the next loop()
@@ -350,10 +384,15 @@ void loop_ATOMQR_UARD_CMD()
 #ifdef TRY_HOST  ///no
     else if (_shortPress)
     {
+        //     M5.dis.fillpix(0x0000ff);
+
+        
         delay(50);
         Serial2.write(start_scan_cmd, sizeof(start_scan_cmd));
         delay(1000);
         Serial2.write(stop_scan_cmd, sizeof(stop_scan_cmd));
+        
+
     }
 #else
     else if (_shortPress)

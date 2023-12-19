@@ -14,7 +14,7 @@
 void setup() {
 
   Serial.begin(115200);
-  Serial.println();
+  Serial.println("STARTUP");
     
     
   SerialInfo.println("******************");
@@ -31,7 +31,10 @@ void setup() {
     //setup the ATOM QR Reader
     setup_ATOMQRCodeModule();
 #endif
-    
+ 
+#ifdef ATOMQR_FACTORY_CODE
+    setup_ATOMQR_FactoryCode();
+#endif
 
 //! try a call..  NOTE, if the WIFI isn't working, this won't work either..
 #ifdef USE_REST_MESSAGING
@@ -48,6 +51,12 @@ void loop() {
 #ifdef ATOM_QRCODE_MODULE
     loop_ATOMQRCodeModule();
 #endif
+
+
+#ifdef ATOMQR_FACTORY_CODE
+    loop_ATOMQR_FactoryCode();
+#endif
+
   delay(100);  //this delays the feed trigger response
 
 }

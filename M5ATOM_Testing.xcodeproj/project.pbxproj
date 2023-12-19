@@ -8,7 +8,7 @@
 
 /* Begin PBXFileReference section */
 		D26BE0A32B30B991000166C2 /* Defines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Defines.h; sourceTree = "<group>"; };
-		D26BE0A42B30B991000166C2 /* M5ATOM_Testing.ino */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = M5ATOM_Testing.ino; sourceTree = "<group>"; };
+		D26BE0A42B30B991000166C2 /* M5ATOM_Testing.ino */ = {isa = PBXFileReference; explicitFileType = sourcecode.c; fileEncoding = 4; path = M5ATOM_Testing.ino; sourceTree = "<group>"; };
 		D26BE0A82B30B991000166C2 /* ATOMQR_UART_CMD.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ATOMQR_UART_CMD.cpp; sourceTree = "<group>"; };
 		D26BE0AC2B30B991000166C2 /* ATOMQR_UART_CMD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ATOMQR_UART_CMD.h; sourceTree = "<group>"; };
 		D26BE0AD2B30BAE2000166C2 /* ATOM_SM.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ATOM_SM.cpp; sourceTree = "<group>"; };
@@ -21,6 +21,14 @@
 		D26BE0B52B30C35A000166C2 /* SM_SMART.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = SM_SMART.png; sourceTree = "<group>"; };
 		D26BE0B62B30C38C000166C2 /* SemanticMarkerQR.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = SemanticMarkerQR.jpg; sourceTree = "<group>"; };
 		D26BE0B72B30C524000166C2 /* LICENSE.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = LICENSE.md; sourceTree = "<group>"; };
+		D26BE0B82B30FAB5000166C2 /* ATOMQR_FactoryCode.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ATOMQR_FactoryCode.cpp; sourceTree = "<group>"; };
+		D26BE0B92B30FAB5000166C2 /* ATOMQR_FactoryCode.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ATOMQR_FactoryCode.h; sourceTree = "<group>"; };
+		D26BE0BB2B310DD1000166C2 /* LED_DisPlay.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = LED_DisPlay.cpp; sourceTree = "<group>"; };
+		D26BE0BC2B310DD1000166C2 /* Task.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Task.h; sourceTree = "<group>"; };
+		D26BE0BD2B310DD1000166C2 /* M5Display.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = M5Display.h; sourceTree = "<group>"; };
+		D26BE0BE2B310DD1000166C2 /* Task.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Task.cpp; sourceTree = "<group>"; };
+		D26BE0BF2B310DD1000166C2 /* M5Display.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = M5Display.cpp; sourceTree = "<group>"; };
+		D26BE0C02B310DD1000166C2 /* LED_DisPlay.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LED_DisPlay.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -39,6 +47,7 @@
 		D26BE0A52B30B991000166C2 /* src */ = {
 			isa = PBXGroup;
 			children = (
+				D26BE0BA2B310C55000166C2 /* LED_DisplayModule */,
 				D26BE0A62B30B991000166C2 /* ATOM_QRCode_Module */,
 			);
 			path = src;
@@ -53,6 +62,8 @@
 				D26BE0A82B30B991000166C2 /* ATOMQR_UART_CMD.cpp */,
 				D26BE0AE2B30BAE2000166C2 /* ATOM_SM.h */,
 				D26BE0AD2B30BAE2000166C2 /* ATOM_SM.cpp */,
+				D26BE0B82B30FAB5000166C2 /* ATOMQR_FactoryCode.cpp */,
+				D26BE0B92B30FAB5000166C2 /* ATOMQR_FactoryCode.h */,
 			);
 			path = ATOM_QRCode_Module;
 			sourceTree = "<group>";
@@ -66,6 +77,19 @@
 				D26BE0B62B30C38C000166C2 /* SemanticMarkerQR.jpg */,
 			);
 			path = images;
+			sourceTree = "<group>";
+		};
+		D26BE0BA2B310C55000166C2 /* LED_DisplayModule */ = {
+			isa = PBXGroup;
+			children = (
+				D26BE0BB2B310DD1000166C2 /* LED_DisPlay.cpp */,
+				D26BE0C02B310DD1000166C2 /* LED_DisPlay.h */,
+				D26BE0BF2B310DD1000166C2 /* M5Display.cpp */,
+				D26BE0BD2B310DD1000166C2 /* M5Display.h */,
+				D26BE0BE2B310DD1000166C2 /* Task.cpp */,
+				D26BE0BC2B310DD1000166C2 /* Task.h */,
+			);
+			path = LED_DisplayModule;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
